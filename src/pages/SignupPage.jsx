@@ -37,7 +37,7 @@ export function SignupPage(){
                     value={credentials.username}
                     required/>
                 
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Password:</label>
                 <input 
                     type="text"
                     placeholder="Password"
@@ -47,7 +47,7 @@ export function SignupPage(){
                     value={credentials.password}
                     required/>
                 
-                <label htmlFor="instrument">
+                <label className="instrument" htmlFor="instrument">
                     Instrument:
                     <select
                     name="instrument"
@@ -63,11 +63,11 @@ export function SignupPage(){
                     </select>
                 </label>
                 <button>Signup</button>
-
+                <div>
+                    Already have an account? <Link to="/">Login</Link> 
+                </div>
             </form>
-            <div>
-                Already have an account? <Link to="/">Login</Link> 
-            </div>
+
 
 
         </section>

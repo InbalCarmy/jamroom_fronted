@@ -38,7 +38,7 @@ export function LoginPage(){
 
     return(
         <section>
-            <form  onSubmit={onLogin}>
+            <form className="login-form" onSubmit={onLogin}>
                 <label htmlFor="username">Username:</label>
                 <input 
                     type="text"
@@ -48,7 +48,7 @@ export function LoginPage(){
                     onChange={handleChange}
                     value={credentials.username}
                  />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Password:</label>
                 <input 
                     type="text"
                     placeholder="Password"
@@ -57,10 +57,11 @@ export function LoginPage(){
                     onChange={handleChange}
                     value={credentials.password}/>
                 <button>Login</button>
+                <div>
+                    Don't have an account? <Link to="/Signup">Signup</Link> 
+                </div>                
             </form>
-            <div>
-                Don't have an account? <Link to="/Signup">Signup</Link> 
-            </div>
+
     </section>
     )
 }

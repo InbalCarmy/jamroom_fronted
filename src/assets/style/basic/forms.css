@@ -1,0 +1,24 @@
+button {
+	/* padding: .5em .8em;
+	border: 0;
+	margin: .5em;
+	cursor: pointer;
+	background-color: var(--clr1);
+	color: whitesmoke; */
+    background-color: var(--btn);
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+button:hover {
+	transition: 0.3s;
+    background-color: ver(--btn-hover);
+}
+
+
+input, select {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+};
+

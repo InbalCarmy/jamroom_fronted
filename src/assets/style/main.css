@@ -5,5 +5,13 @@
 
 
 @import './basic/bace.css';
+@import './basic/forms.css';
+
+
+@import './pages/LoginPage.css';
+@import './pages/SignupPage.css';
+
+
+@import './setup/var.css';
 
 
