@@ -1,0 +1,21 @@
+
+
+.app-header{
+    /* display: flex;
+    background-color: rgb(117, 185, 231); */
+    background-color: rgb(117, 185, 231); 
+    padding: 0.2rem;
+    text-align: flex-start;
+    margin-bottom: 10px;
+    text-align: start;
+    padding-left: 10px;
+}
+
+.app-header h1{ 
+    color: rgb(60, 121, 162);
+    font-size: 2.3rem; 
+}
+
+.app-header a{
+    text-decoration: none;
+}
