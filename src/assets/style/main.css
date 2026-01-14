@@ -2,6 +2,8 @@
 
 
 @import './cmp/AppHeader.css';
+@import './cmp/UserMsg.css';
+@import './cmp/SongList.css';
 
 
 @import './basic/bace.css';
@@ -10,6 +12,7 @@
 
 @import './pages/LoginPage.css';
 @import './pages/SignupPage.css';
+@import './pages/MainPage.css';
 
 
 @import './setup/var.css';

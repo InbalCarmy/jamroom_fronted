@@ -9,13 +9,21 @@
     margin-bottom: 10px;
     text-align: start;
     padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .app-header h1{ 
     color: #FBBF24;
-    font-size: 2.3rem; 
+    font-size: 2.3rem;
+    margin-left:10px ; 
 }
 
 .app-header a{
     text-decoration: none;
+}
+
+.app-header button{
+    margin-right: 10px;
 }

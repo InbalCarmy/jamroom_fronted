@@ -4,15 +4,18 @@ import { storageService } from "./async-storage.service"
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
 export const userService = {
-    login, 
+    login,
     logout,
     signup,
     remove,
     // update,
     getLoggedinUser,
     saveLoggedinUser,
-    getUsers
+    getUsers,
+    _createDemoUsers
 }
+
+_createDemoUsers()
 
 async function getUsers(){
     const users = await storageService.query('user')
@@ -62,4 +65,54 @@ async function saveLoggedinUser(user){
     }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
+}
+
+async function _createDemoUsers() {
+    const demoUsers = [
+        {
+            username: 'admin',
+            password: 'admin123',
+            instrument: 'Piano',
+            isAdmin: true
+        },
+        {
+            username: 'john_guitar',
+            password: 'pass123',
+            instrument: 'Guitar',
+            isAdmin: false
+        },
+        {
+            username: 'sarah_drums',
+            password: 'pass123',
+            instrument: 'Drums',
+            isAdmin: false
+        },
+        {
+            username: 'mike_bass',
+            password: 'pass123',
+            instrument: 'Bass',
+            isAdmin: false
+        },
+        {
+            username: 'emma_vocals',
+            password: 'pass123',
+            instrument: 'Vocals',
+            isAdmin: false
+        }
+    ]
+
+    const existingUsers = await storageService.query('user')
+    if (existingUsers.length > 0) {
+        console.log('Demo users already exist')
+        return existingUsers
+    }
+
+    const createdUsers = []
+    for (const userCred of demoUsers) {
+        const user = await storageService.post('user', userCred)
+        createdUsers.push(user)
+    }
+
+    console.log('Created 5 demo users (1 admin, 4 regular users)')
+    return createdUsers
 }

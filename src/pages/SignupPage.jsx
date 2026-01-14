@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { signup } from "../store/user/user.actions"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-// import { userService } from "../services/user.service.local"
 
 export function SignupPage(){
     const [credentials, setCredentials] = useState({username: '', password: '', instrument: 'Drum'})
@@ -19,7 +18,7 @@ export function SignupPage(){
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.instrument) return
         await signup(credentials)
-        navigate('/')
+        navigate('/main')
     }
 
 

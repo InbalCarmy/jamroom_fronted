@@ -1,30 +1,19 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { userService } from "../services/user.service.local"
 import { login } from "../store/user/user.actions"
+import "../assets/style/pages/LoginPage.css"
 
 
 export function LoginPage(){
     const [credentials, setCredentials] = useState({username: '', password: '', instrument: ''})
-    // const [users, setUsers] = useState([])
     const navigate = useNavigate()
 
-
-
-    // useEffect(() => {
-    //     loadUsers()
-    // },[])
-
-    // async function loadUsers(){
-    //     const users = userService.getUsers()
-    //     setUsers(users)
-    // }
 
     async function onLogin(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username) return
         await login(credentials)
-        navigate('/')
+        navigate('/main')
 
     }
 

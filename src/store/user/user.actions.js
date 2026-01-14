@@ -1,7 +1,6 @@
-import { userService } from "../../services/user.service.local";
+import { userService } from "../../services/user.service";
 import { SET_USERS, SET_USER, REMOVE_USER } from "./user.reducer";
 import { store } from '../store'
-
 
 
 

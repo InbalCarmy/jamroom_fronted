@@ -1,0 +1,52 @@
+.song-lyrics {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.song-lyrics h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.song-lyrics h3 {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.lyrics-content {
+    font-family: monospace;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.lyrics-line {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.lyrics-segment {
+    display: flex;
+    flex-direction: column;
+    min-width: 60px;
+}
+
+.chord {
+    font-weight: bold;
+    color: #2563eb;
+    font-size: 0.95rem;
+    height: 20px;
+    margin-bottom: 2px;
+}
+
+.lyric {
+    color: #333;
+}
+
+.live-page {
+    min-height: 100vh;
+    padding: 20px;
+}
