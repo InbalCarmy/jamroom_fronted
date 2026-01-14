@@ -25,7 +25,7 @@ export function AppHeader(){
 
     return (
         <header className="app-header">
-            <Link to="/">
+            <Link to="/main">
                 <h1 >
                     JamRoom
                 </h1>
