@@ -71,7 +71,7 @@ export function LivePage() {
         navigate('/main')
     }    
 
-    const showChords = user.instrument !== 'Vocals'
+    const showChords = user?.instrument !== 'Vocals'
 
     return (
         <section className="live-page">

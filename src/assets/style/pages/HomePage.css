@@ -12,3 +12,11 @@
     font-size: 4rem;
     color: var(--btn-hover);
 }
+
+.home-page a{
+    color: white;
+}
+
+.home-page a:hover{
+    color: var(--btn) ;
+}
