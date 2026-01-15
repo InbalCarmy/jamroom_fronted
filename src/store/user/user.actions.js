@@ -30,6 +30,7 @@ export async function login(credantials){
         const user = await userService.login(credantials)
         store.dispatch({type: SET_USER, user})
         socketService.login(user._id)
+        socketService.emit('request-current-song')
         return user
     } catch (err){
         console.log('Cannot login', err);
@@ -45,6 +46,7 @@ export async function signup(credentials) {
             user
         })
         socketService.login(user._id)
+        socketService.emit('request-current-song')
         return user
     } catch (err) {
         console.log('Cannot signup', err)

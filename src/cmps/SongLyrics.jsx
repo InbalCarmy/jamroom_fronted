@@ -23,15 +23,15 @@ export function SongLyrics({ song, showChords }) {
         return <div>No lyrics available</div>
     }
 
-    // Check if text contains Hebrew characters
     const isHebrew = (text) => {
         const hebrewRegex = /[\u0590-\u05FF]/
         return hebrewRegex.test(text)
     }
 
-    // Check if the song contains Hebrew text
     const hasHebrew = song.title && isHebrew(song.title)
     const directionClass = hasHebrew ? 'rtl' : 'ltr'
+
+    
 
     return (
         <section className="song-lyrics">

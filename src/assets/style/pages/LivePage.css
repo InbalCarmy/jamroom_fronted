@@ -1,0 +1,16 @@
+
+
+.live-page-btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.live-page{
+    position: relative;
+}
+
+.scroll-btn{
+    position: fixed;
+    right: 5%;
+    top: 18%;
+}

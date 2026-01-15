@@ -25,11 +25,19 @@ export function AppHeader(){
 
     return (
         <header className="app-header">
-            <Link to="/main">
-                <h1 >
-                    JamRoom
-                </h1>
-            </Link>
+            { user ? 
+                (<Link to="/main">
+                    <h1 >
+                        JamRoom
+                    </h1>
+                </Link>) :
+                (<Link to="/">
+                    <h1 >
+                        JamRoom
+                    </h1>
+                </Link>)
+
+            }
             {user &&
                 <button onClick={onLogout}>
                     Logout

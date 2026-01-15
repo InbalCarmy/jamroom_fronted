@@ -4,8 +4,9 @@ import { userService } from './user.service'
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 export const SOCKET_EVENT_END_SESSION = 'end-session' 
-
 export const SOCKET_EVENT_SONG_SELECTED = 'song-selected'
+export const SOCKET_EVENT_REQUEST_CURRENT_SONG = 'request-current-song' 
+export const SOCKET_EVENT_CURRENT_SONG = 'current-song'
 
 
 

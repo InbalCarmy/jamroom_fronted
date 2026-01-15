@@ -63,7 +63,7 @@ export function SignupPage(){
                 </label>
                 <button>Signup</button>
                 <div>
-                    Already have an account? <Link to="/">Login</Link> 
+                    Already have an account? <Link to="/login">Login</Link> 
                 </div>
             </form>
 

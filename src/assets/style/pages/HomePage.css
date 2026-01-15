@@ -1,0 +1,14 @@
+
+
+.home-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.home-page div{
+    font-size: 4rem;
+    color: var(--btn-hover);
+}

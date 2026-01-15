@@ -38,7 +38,7 @@ export function MainPage(){
             <section className="main-page">
                 <div>
                     <h1>Please log in</h1>
-                <Link to='/'>
+                <Link to='/login'>
                 <button> login page </button>
                 </Link>
                 </div>

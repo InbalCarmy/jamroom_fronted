@@ -47,7 +47,7 @@ export function LoginPage(){
                     value={credentials.password}/>
                 <button>Login</button>
                 <div>
-                    Don't have an account? <Link to="/Signup">Signup</Link> 
+                    Don't have an account? <Link to="/signup">Signup</Link> 
                 </div>                
             </form>
 
