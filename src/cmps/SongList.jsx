@@ -13,7 +13,6 @@ export function SongList({songs}){
                     <Link to={`/song/${song._id}`}>
                         <SongPreview song={song}/>
                     </Link>
-
                 </li>
             )}
         </ul>

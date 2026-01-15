@@ -1,6 +1,7 @@
 import { userService } from "../../services/user.service";
 import { SET_USERS, SET_USER, REMOVE_USER } from "./user.reducer";
 import { store } from '../store'
+import { socketService } from "../../services/socket.service";
 
 
 
@@ -28,6 +29,7 @@ export async function login(credantials){
     try{
         const user = await userService.login(credantials)
         store.dispatch({type: SET_USER, user})
+        socketService.login(user._id)
         return user
     } catch (err){
         console.log('Cannot login', err);
@@ -42,7 +44,7 @@ export async function signup(credentials) {
             type: SET_USER,
             user
         })
-        // socketService.login(user._id)
+        socketService.login(user._id)
         return user
     } catch (err) {
         console.log('Cannot signup', err)
@@ -57,7 +59,7 @@ export async function logout() {
             type: SET_USER,
             user: null
         })
-        // socketService.logout()
+        socketService.logout()
     } catch (err) {
         console.log('Cannot logout', err)
         throw err
