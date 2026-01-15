@@ -2,6 +2,7 @@ import { userService } from "../../services/user.service";
 import { SET_USERS, SET_USER, REMOVE_USER } from "./user.reducer";
 import { store } from '../store'
 import { socketService } from "../../services/socket.service";
+import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 
 
 
@@ -31,8 +32,10 @@ export async function login(credantials){
         store.dispatch({type: SET_USER, user})
         socketService.login(user._id)
         socketService.emit('request-current-song')
+        showSuccessMsg('Login successfully!')
         return user
     } catch (err){
+        showErrorMsg('Can not login')
         console.log('Cannot login', err);
         throw err
     }
@@ -45,10 +48,12 @@ export async function signup(credentials) {
             type: SET_USER,
             user
         })
+        showSuccessMsg('Signup seccessfully!')
         socketService.login(user._id)
         socketService.emit('request-current-song')
         return user
     } catch (err) {
+        showErrorMsg('Can not signup')
         console.log('Cannot signup', err)
         throw err
     }
@@ -61,8 +66,10 @@ export async function logout() {
             type: SET_USER,
             user: null
         })
+        showSuccessMsg('Logout successfully!')
         socketService.logout()
     } catch (err) {
+        showErrorMsg('Can not logout')
         console.log('Cannot logout', err)
         throw err
     }

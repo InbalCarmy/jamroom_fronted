@@ -1,17 +1,14 @@
-import { eventBus, showSuccessMsg } from '../services/event-bus.service'
-import { useState, useEffect, useRef } from 'react'
-import { socketService, SOCKET_EVENT_REVIEW_ABOUT_YOU } from '../services/socket.service'
+import { useEffect, useRef, useState } from "react"
+import { eventBusService } from "../services/event-bus.service.js"
+// const { useState, useEffect, useRef } = React
 
 export function UserMsg() {
+
     const [msg, setMsg] = useState(null)
     const timeoutIdRef = useRef()
 
-    function closeMsg() {
-        setMsg(null)
-    }
-
     useEffect(() => {
-        const unsubscribe = eventBus.on('show-msg', msg => {
+        const unsubscribe = eventBusService.on('show-user-msg', (msg) => {
             setMsg(msg)
             if (timeoutIdRef.current) {
                 timeoutIdRef.current = null
@@ -19,26 +16,18 @@ export function UserMsg() {
             }
             timeoutIdRef.current = setTimeout(closeMsg, 3000)
         })
-
-        socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, review => {
-            showSuccessMsg(`New review about me ${review.txt}`)
-        })
-
-        return () => {
-            unsubscribe()
-            socketService.off(SOCKET_EVENT_REVIEW_ABOUT_YOU)
-        }
+        return unsubscribe
     }, [])
 
-
-
-    function msgClass() {
-        return msg ? 'visible' : ''
+    function closeMsg() {
+        setMsg(null)
     }
+
+    if (!msg) return <span></span>
     return (
-        <section className={`user-msg ${msg?.type} ${msgClass()}`}>
+        <section className={`user-msg ${msg.type}`}>
+            {msg.txt}
             <button onClick={closeMsg}>x</button>
-            {msg?.txt}
         </section>
     )
 }

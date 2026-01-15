@@ -10,7 +10,7 @@ import { LoginPage } from './pages/LoginPage'
 import { SignupPage } from './pages/SignupPage'
 import { MainPage } from './pages/MainPage'
 import { LivePage } from './pages/LivePage'
-// import { UserMsg } from './cmps/UserMsg'
+import { UserMsg } from './cmps/UserMsg'
 
 function App() {
   const navigate = useNavigate()
@@ -46,7 +46,7 @@ function App() {
   return (
     <>
     <AppHeader/>
-    {/* <UserMsg /> */}
+    <UserMsg />
     <main>
       <Routes>
         <Route path ="/" element ={<HomePage/>}/>
