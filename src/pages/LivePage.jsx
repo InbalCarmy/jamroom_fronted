@@ -16,18 +16,19 @@ export function LivePage() {
         loadSong(id)
     },[id])
 
-    if (!user) {
-        navigate("/main")
-        return null
-    }
+    useEffect(() => {
+        if (!user) {
+            navigate("/main")
+        }
+    }, [user, navigate])
 
-    if (!song || !song._id) {
-        return (
-            <section className="live-page">
-                <h1>Waiting for a song to be selected...</h1>
-            </section>
-        )
-    }
+    // if (!song || !song._id) {
+    //     return (
+    //         <section className="live-page">
+    //             <h1>Waiting for a song to be selected...</h1>
+    //         </section>
+    //     )
+    // }
 
     const showChords = user.instrument !== 'vocals'
 
