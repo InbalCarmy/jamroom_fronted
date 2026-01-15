@@ -4,8 +4,8 @@ import { signup } from "../store/user/user.actions"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-export function SignupPage(){
-    const [credentials, setCredentials] = useState({username: '', password: '', instrument: 'Drum'})
+export function SignupPage({isAdmin = false}){
+    const [credentials, setCredentials] = useState({username: '', password: '', instrument: 'Drum', isAdmin: isAdmin})
     const navigate = useNavigate()
 
     function handleChange(ev) {
@@ -16,7 +16,8 @@ export function SignupPage(){
 
     async function onSignup(ev = null) {
         if (ev) ev.preventDefault()
-        if (!credentials.username || !credentials.password || !credentials.instrument) return
+        if (!credentials.username || !credentials.password) return
+        if (!isAdmin && !credentials.instrument) return
         await signup(credentials)
         navigate('/main')
     }
@@ -24,7 +25,8 @@ export function SignupPage(){
 
 
     return(
-        <section>
+        <section className="signup-page">
+            <h1>{isAdmin ? 'Admin Signup' : 'Musician Signup'}</h1>
             <form className="signup-form" onSubmit={onSignup}>
                 <label htmlFor="username">Username:</label>
                 <input 
@@ -45,22 +47,24 @@ export function SignupPage(){
                     onChange={handleChange}
                     value={credentials.password}
                     required/>
-                
-                <label className="instrument" htmlFor="instrument">
-                    Instrument:
-                    <select
-                    name="instrument"
-                    id="instrument"
-                    onChange={handleChange}
-                    value={credentials.instrument}>
-                        <option value="Drum">Drum</option>
-                        <option value="Guitar">Guitar</option>
-                        <option value="Bass">Bass</option>
-                        <option value="Saxophone">Saxophone</option>
-                        <option value="Keyboards">Keyboards</option>
-                        <option value="Vocals">Vocals</option>
-                    </select>
-                </label>
+
+                    {!isAdmin && (
+                        <label className="instrument" htmlFor="instrument">
+                            Instrument:
+                            <select
+                            name="instrument"
+                            id="instrument"
+                            onChange={handleChange}
+                            value={credentials.instrument}>
+                                <option value="Drum">Drum</option>
+                                <option value="Guitar">Guitar</option>
+                                <option value="Bass">Bass</option>
+                                <option value="Saxophone">Saxophone</option>
+                                <option value="Keyboards">Keyboards</option>
+                                <option value="Vocals">Vocals</option>
+                            </select>
+                        </label>                        
+                    )}
                 <button>Signup</button>
                 <div>
                     Already have an account? <Link to="/login">Login</Link> 

@@ -46,7 +46,6 @@ async function update({ _id, score }) {
 }
 
 async function signup(userCred) {
-	userCred.isAdmin = false
     const user = await httpService.post('auth/signup', userCred)
 	return _saveLocalUser(user)
 }

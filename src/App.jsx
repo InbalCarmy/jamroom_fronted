@@ -52,6 +52,7 @@ function App() {
         <Route path ="/" element ={<HomePage/>}/>
         <Route path ="/login" element ={<LoginPage/>}/>
         <Route path ="/signup" element ={<SignupPage/>}/>
+        <Route path ="/signup/admin" element ={<SignupPage isAdmin={true}/>}/>
         <Route path ="/main" element ={<MainPage/>}/>
         <Route path ="/song/:id" element ={<LivePage/>}/>
       </Routes>      
