@@ -1,8 +1,15 @@
 import { SongPreview } from "./SongPreview"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
-export function SongList({songs}){
+export function SongList({songs, onSongSelect}){
+    const navigate = useNavigate()
+
+
+    function onChooseSong(songId){
+        onSongSelect(songId)
+        navigate(`/song/${songId}`)
+    }
 
 
 
@@ -10,9 +17,9 @@ export function SongList({songs}){
         <ul className="song-list">
             {songs.map(song =>
                 <li key={song._id}>
-                    <Link to={`/song/${song._id}`}>
+                    <button onClick={() => onChooseSong(song._id)}>
                         <SongPreview song={song}/>
-                    </Link>
+                    </button>
                 </li>
             )}
         </ul>
